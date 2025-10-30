@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./output.css">
     <title>Contact</title>
+
 </head>
 
 <body class="bg-[#F4F6F9]">
@@ -49,7 +50,7 @@
                     <form>
                         <div class="mb-6 flex flex-col">
                             <label class="text-sm font-medium ml-4 leading-4 text-[#0E0F10] mb-2" for="name">Ism</label>
-                            <input
+                            <input required
                                 class="bg-[#F4F6F9] outline-none py-4 pr-1 pl-4 rounded-full text-sm font-medium leading-4 text-[#BCBFC3]"
                                 id="name" type="text" placeholder="Ismingiz">
                         </div>
@@ -57,27 +58,29 @@
                             <label class="text-sm font-medium ml-4 leading-4 text-[#0E0F10] mb-2" for="tel">Telefon
                                 raqam
                             </label>
-                            <input
+                            <input required
                                 class="bg-[#F4F6F9] outline-none py-4 pr-1 pl-4 rounded-full text-sm font-medium leading-4 text-[#BCBFC3]"
                                 id="tel" type="text" placeholder="+998">
                         </div>
                         <div class="mb-6 flex flex-col">
                             <label class="text-sm font-medium ml-4 leading-4 text-[#0E0F10] mb-2"
                                 for="email">Email</label>
-                            <input
+                            <input required
                                 class="bg-[#F4F6F9] outline-none py-4 pr-1 pl-4 rounded-full text-sm font-medium leading-4 text-[#BCBFC3]"
                                 id="email" type="text" placeholder="email">
                         </div>
                         <div class="mb-6 flex flex-col">
                             <label class="text-sm font-medium ml-4 leading-4 text-[#0E0F10] mb-2"
                                 for="massege">Xabar</label>
-                            <textarea
-                                class="bg-[#F4F6F9] text-start outline-none resize-none py-4 pr-1 pl-4 rounded-3xl h-39 text-sm font-medium leading-4 text-[#BCBFC3]" id="massege">
+                            <textarea required
+                                class="bg-[#F4F6F9] text-start outline-none resize-none py-4 pr-1 pl-4 rounded-3xl h-39 text-sm font-medium leading-4 text-[#BCBFC3]"
+                                id="massege">
                         </textarea>
                         </div>
+                        <button
+                            class="text-white max-w-110.5 w-full font-medium font-poppins text-sm leading-4 bg-[#0073FF] py-3 md:py-4 px-6 rounded-full border-none cursor-pointer">Yuborish</button>
                     </form>
-                    <button
-                        class="text-white max-w-110.5 w-full font-medium font-poppins text-sm leading-4 bg-[#0073FF] py-3 md:py-4 px-6 rounded-full border-none cursor-pointer">Yuborish</button>
+
                 </div>
             </div>
         </div>
@@ -155,6 +158,24 @@
                 },
             },
         });
+        const msg = document.getElementById("massege");
+
+        // bosilganda select bo‘lmasin
+        msg.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            msg.focus();
+        });
+
+        // yozganda kursorni oxirga qaytaramiz
+        msg.addEventListener("input", () => {
+            msg.selectionStart = msg.selectionEnd = msg.value.length;
+        });
+
+        // klaviatura bilan uringanda ham oxirda tursin
+        msg.addEventListener("click", () => {
+            msg.selectionStart = msg.selectionEnd = msg.value.length;
+        });
+
     </script>
 </body>
 
