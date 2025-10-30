@@ -1,9 +1,6 @@
 {
-    "version": 2,
-    "public": true,
-    "rewrites": [
-      { "source": "/:page", "destination": "/:page.html" },
-      { "source": "/", "destination": "/index.html" }
-    ]
-  }
-  
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/:page", "destination": "/:page.html" }
+  ]
+}
